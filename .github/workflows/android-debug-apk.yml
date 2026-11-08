@@ -5,6 +5,7 @@ on:
     paths:
       - 'app/android/**'
       - 'app/scripts/**'
+      - 'scripts/**'
       - '.github/workflows/android-debug-apk.yml'
   workflow_dispatch:
 
@@ -29,6 +30,8 @@ jobs:
           distribution: temurin
           java-version: '21'
 
+      - name: Install root dependencies
+        run: bun install
 
       - name: Install app dependencies
         working-directory: app
